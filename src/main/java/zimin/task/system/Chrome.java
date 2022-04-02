@@ -16,7 +16,7 @@ public class Chrome {
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize(); //сделал максимизацию окна, чтобы можно было посмотреть
-        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
 
     public WebDriver getWebDriver() {
@@ -40,6 +40,15 @@ public class Chrome {
 
     public void click(WebElement element) {
         element.click();
+    }
+
+    public String read(WebElement element) {
+        String value = element.getText();
+        return value;
+    }
+
+    public void closeChrome () {
+        webDriver.close();
     }
 
 }
